@@ -85,7 +85,7 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
 
       input."*" = { 
         xkb_layout = "de";
-        xkb_options = "us";
+        xkb_variant = "us";
         xkb_options = "caps:escape";
 
       };
