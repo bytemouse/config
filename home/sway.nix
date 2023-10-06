@@ -86,7 +86,7 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
 
       input."*" = { 
         xkb_layout = "de";
-        xkb_options = "grp:rctrl_toggle";
+        xkb_options = "us";
       };
 
       gaps.inner = 0;
