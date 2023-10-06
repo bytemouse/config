@@ -1,13 +1,21 @@
-{ nixosConfig, lib, ... }:
-lib.mkIf nixosConfig.services.xserver.desktopManager.gnome.enable {
-
+{ pkgs, ... }:
+{
   programs.firefox = {
+
     enable = true;
-    profiles."default" = {
-      search.default = "DuckDuckGo";
-      isDefault = true;
-      settings = nixosConfig.home-manager.users.snd.programs.librewolf.settings;
+    profiles = {
+      default = {
+        id = 0;
+        name = "default";
+        isDefault = true;
+
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          bitwarden
+          clearurls
+          consent-o-matic
+        ];
+      };
     };
   };
-
 }

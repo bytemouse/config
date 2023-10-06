@@ -9,6 +9,7 @@
     }: {
       home.stateVersion = "22.11";
       imports = [
+        ./alacritty.nix
         # ./git.nix
         ./gtk.nix
         # ./mail.nix
@@ -40,7 +41,8 @@
 
         ./swaync
         ./network-certs
-        ./nvim
+        ./neovim
+        ./vscode.nix
       ];
     };
 
