@@ -7,4 +7,11 @@
     description = "snd";
     extraGroups = [ "podman" "journalctl" "docker" "libvirtd" "video" "adbusers" "networkmanager" "wheel" ];
   };
+  users.users.jan = {
+    # hashedPassword = "$y$j9T$kHVxr/UFKI.HXCr3wiblL0$.YC6nSzSly5ECiRsa1kCqYMnjADDrowP1yny28kvB7/";
+    password = "test";
+    isNormalUser = true;
+    description = "jan";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
 }
