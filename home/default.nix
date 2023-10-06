@@ -41,7 +41,7 @@
 
         ./swaync
         ./network-certs
-        ./neovim
+        ./neovim.nix
         ./vscode.nix
       ];
     };
