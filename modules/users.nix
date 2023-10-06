@@ -9,7 +9,7 @@
   };
   users.users.jan = {
     # hashedPassword = "$y$j9T$kHVxr/UFKI.HXCr3wiblL0$.YC6nSzSly5ECiRsa1kCqYMnjADDrowP1yny28kvB7/";
-    password = "test";
+    password = "test789";
     isNormalUser = true;
     description = "jan";
     extraGroups = [ "networkmanager" "wheel" ];
