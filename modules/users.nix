@@ -1,10 +1,10 @@
 { config, pkgs, lib, ... }:
 {
   users.users.snd = {
-    uid = 1000;
-    hashedPassword = "$y$j9T$7BatRoIvM/06kkM1zOs.W1$Phy/NxA2qJFl.j6NygjrNr53KG4oWEPEvqpNfokvS7.";
+    # hashedPassword = "$y$j9T$kHVxr/UFKI.HXCr3wiblL0$.YC6nSzSly5ECiRsa1kCqYMnjADDrowP1yny28kvB7/";
+    password = "test";
     isNormalUser = true;
-    description = "bytemouse";
+    description = "snd";
     extraGroups = [ "podman" "journalctl" "docker" "libvirtd" "video" "adbusers" "networkmanager" "wheel" ];
   };
 }

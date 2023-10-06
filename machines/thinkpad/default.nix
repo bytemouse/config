@@ -11,11 +11,12 @@
     gui.desktop.enable = true;
     screen = "small";
     ocr.enable = true;
+    extraArch.enable = false;
 
   };
 
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = false;
 
   services = {
     xserver.desktopManager.gnome.enable = true;
