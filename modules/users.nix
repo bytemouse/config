@@ -1,17 +1,11 @@
 { config, pkgs, lib, ... }:
 {
   users.users.snd = {
-    # hashedPassword = "$y$j9T$kHVxr/UFKI.HXCr3wiblL0$.YC6nSzSly5ECiRsa1kCqYMnjADDrowP1yny28kvB7/";
+    uid = 1000;
+    # hashedPassword = "$y$j9T$7BatRoIvM/06kkM1zOs.W1$Phy/NxA2qJFl.j6NygjrNr53KG4oWEPEvqpNfokvS7.";
     password = "test";
     isNormalUser = true;
-    description = "snd";
-    extraGroups = [ "journalctl" "video" "networkmanager" "wheel" ];
-  };
-  users.users.jan = {
-    # hashedPassword = "$y$j9T$kHVxr/UFKI.HXCr3wiblL0$.YC6nSzSly5ECiRsa1kCqYMnjADDrowP1yny28kvB7/";
-    password = "test789";
-    isNormalUser = true;
-    description = "jan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    description = "bytemouse";
+    extraGroups = [ "podman" "journalctl" "docker" "libvirtd" "video" "adbusers" "networkmanager" "wheel" ];
   };
 }
