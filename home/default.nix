@@ -1,48 +1,48 @@
 { inputs, unstable, pkgs, config, lib, ... }:
 {
- 
-  home-manager.users.snd = { 
-    nixosConfig, 
-    config, 
-    pkgs, 
-    ... 
-  }: {
-    home.stateVersion = "22.11";
-    imports = [
-      ./git.nix
-      ./gtk.nix
-      ./mail.nix
-      ./mpv.nix
-      ./ncmpcpp.nix
-      ./sway.nix
-      ./waybar.nix
-      ./wofi.nix
-      ./xdg.nix
-      ./zathura.nix
-      ./bat.nix
-      ./librewolf.nix
-      ./cli-visuializer.nix
-      ./mpd.nix
-      ./shell.nix
-      ./tmux.nix
-      ./qt.nix
-      ./spotify.nix
-      ./ssh.nix
-      ./sops.nix
-      ./wezterm.nix
-      ./nnn.nix
-      ./swaylock.nix
-      ./dconf.nix
-      #./contacts_calendar.nix TODO
-      ./firefox.nix
-      ./easyeffetcs.nix
-      ./gpg.nix
 
-      ./swaync
-      ./network-certs
-      ./nvim
-    ];
-  };
+  home-manager.users.snd =
+    { nixosConfig
+    , config
+    , pkgs
+    , ...
+    }: {
+      home.stateVersion = "22.11";
+      imports = [
+        # ./git.nix
+        ./gtk.nix
+        # ./mail.nix
+        ./mpv.nix
+        ./ncmpcpp.nix
+        ./sway.nix
+        ./waybar.nix
+        ./wofi.nix
+        ./xdg.nix
+        ./zathura.nix
+        ./bat.nix
+        ./librewolf.nix
+        ./cli-visuializer.nix
+        ./mpd.nix
+        ./shell.nix
+        ./tmux.nix
+        ./qt.nix
+        ./spotify.nix
+        ./ssh.nix
+        ./sops.nix
+        ./wezterm.nix
+        ./nnn.nix
+        ./swaylock.nix
+        ./dconf.nix
+        #./contacts_calendar.nix TODO
+        ./firefox.nix
+        ./easyeffetcs.nix
+        ./gpg.nix
+
+        ./swaync
+        ./network-certs
+        ./nvim
+      ];
+    };
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

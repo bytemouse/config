@@ -39,6 +39,8 @@
 
   };
 
-  config.secrets = builtins.fromJSON (builtins.readFile ./../git-secrets.json);
+
+
+  # config.secrets = builtins.fromJSON (builtins.readFile ./../git-secrets.json);
 
 }

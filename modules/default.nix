@@ -19,8 +19,6 @@
     ./ocr.nix
     ./nnn.nix
     ./gnome.nix
-    ./torrenting.nix
-    ./spotdl.nix
     ./ssh.nix
     ./hostapd.nix
     ./boot.nix

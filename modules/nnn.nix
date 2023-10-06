@@ -13,13 +13,11 @@ let
   ORPHAN = "01";
   FIFO = "06";
   SOCK = "03";
-  UNKNOWN="01";
+  UNKNOWN = "01";
 in
 {
 
-  environment.shellInit = ''
-    source ${pkgs.nnn-scripts}/bin/nnn-script.sh
-  '';
+
 
   environment.systemPackages = with pkgs; [
     (nnn.override { withNerdIcons = true; })
