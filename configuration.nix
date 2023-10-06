@@ -3,7 +3,7 @@
   imports = [
     ./home
     ./modules
-    <nixpkgs/nixos/modules/virtualisation/qemu-vm.nix>
+    # <nixpkgs/nixos/modules/virtualisation/qemu-vm.nix>
   ];
 
   time.timeZone = "Europe/Berlin";
@@ -22,7 +22,7 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  virtualisation.qemu.options = [ "-vga none" "-device virtio-vga-gl" "-display gtk,gl=on" ];
+  # virtualisation.qemu.options = [ "-vga none" "-device virtio-vga-gl" "-display gtk,gl=on" ];
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
