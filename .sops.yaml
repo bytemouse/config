@@ -1,0 +1,20 @@
+# This example uses YAML anchors which allows reuse of multiple keys 
+# without having to repeat yourself.
+# Also see https://github.c21om/Mic92/dotfiles/blob/master/nixos/.sops.yaml
+# for a more complex example.
+keys:
+  - &snd_git 51439C4F1213FC7DD97C45B85E57BD8EDACFA985
+  - &thinkpad age147kymrfytpfq4seds67hdc60xlprvvwkxj2qwv0adu09y7ja5p2qxjfhy8
+  - &desktop age1yl9c9nv3vpz4u5z6zzjcqcynq0373s072ruz7453cc9yfrw3e53qh6d5uw
+creation_rules:
+  - path_regex: secrets\.yaml$
+    key_groups:
+    - pgp:
+      - *snd_git
+      age:
+      - *thinkpad
+      - *desktop
+  - path_regex: git-secrets\.json$
+    key_groups:
+      - pgp:
+        - *snd_git
