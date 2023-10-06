@@ -4,7 +4,6 @@ let
     --config font_size=16.0
   '' else "";
   mod = config.wayland.windowManager.sway.config.modifier;
-  secondLayout = if nixosConfig.setup.keyboard == "us" then "de" else "us";
   outputConfig = if nixosConfig.setup.screen == "big" then {
     "*".bg = "${nixosConfig.theme.colours.bg} solid_color";
     "DP-1".pos = "0 0 res 3840x2160";
@@ -87,6 +86,8 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
       input."*" = { 
         xkb_layout = "de";
         xkb_options = "us";
+        xkb_options = "caps:escape";
+
       };
 
       gaps.inner = 0;
