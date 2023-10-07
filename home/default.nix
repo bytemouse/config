@@ -10,7 +10,7 @@
       home.stateVersion = "22.11";
       imports = [
         ./alacritty.nix
-        # ./git.nix
+        ./git.nix
         ./gtk.nix
         # ./mail.nix
         ./mpv.nix

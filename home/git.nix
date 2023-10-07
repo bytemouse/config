@@ -1,16 +1,16 @@
 # NOTE: How to add public key to codeberg,github,... ?
 # gpg --armor --export snd-git
 { nixosConfig, config, pkgs, ... }:
-let 
-  guiPackages = with pkgs; if nixosConfig.setup.gui.desktop.enable then [ 
-    gitg  # GNOME/GTK GUI client to view git repositories
+let
+  guiPackages = with pkgs; if nixosConfig.setup.gui.desktop.enable then [
+    gitg # GNOME/GTK GUI client to view git repositories
   ] else [ ];
 in
 {
   programs.git = {
     enable = true;
-    userName = "snd";
-    userEmail = "${nixosConfig.secrets.git.email}";
+    userName = "bytemouse";
+    userEmail = "bytemouse@posteo.org";
     extraConfig = {
       init = {
         defaultBranch = "main";
@@ -19,7 +19,7 @@ in
         gpgsign = true;
       };
       user = {
-        signingkey = "51439C4F1213FC7DD97C45B85E57BD8EDACFA985";
+        signingkey = "75035FA99C09E99336461218A8C13B19E24AF69E";
       };
       pull = {
         rebase = true;
