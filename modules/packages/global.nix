@@ -28,7 +28,6 @@
     sshfs
     unzip
     nil
-    git
 
 
 
