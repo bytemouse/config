@@ -1,32 +1,34 @@
-{ nixosConfig, unstable, config, pkgs, lib, ...}:
+{ nixosConfig, unstable, config, pkgs, lib, ... }:
 let
-  term-font-size = if nixosConfig.setup.screen == "big" then ''
-    --config font_size=16.0
-  '' else "";
+  term-font-size =
+    if nixosConfig.setup.screen == "big" then ''
+      --config font_size=16.0
+    '' else "";
   mod = config.wayland.windowManager.sway.config.modifier;
-  outputConfig = if nixosConfig.setup.screen == "big" then {
-    "*".bg = "${nixosConfig.theme.colours.bg} solid_color";
-    "DP-1".pos = "0 0 res 3840x2160";
-    "HDMI-A-1".pos = "3840 0 res 3840x2160";
-  } else {
-    "*".bg = "${nixosConfig.theme.colours.bg} solid_color";
-    "eDP-1".mode = "1920x1080 position 0,0 scale 1";
-  };
+  outputConfig =
+    if nixosConfig.setup.screen == "big" then {
+      "*".bg = "${nixosConfig.theme.colours.bg} solid_color";
+      "DP-1".pos = "0 0 res 3840x2160";
+      "HDMI-A-1".pos = "3840 0 res 3840x2160";
+    } else {
+      "*".bg = "${nixosConfig.theme.colours.bg} solid_color";
+      "eDP-1".mode = "1920x1080 position 0,0 scale 1";
+    };
   t = nixosConfig.theme.colours;
 in
 lib.mkIf nixosConfig.setup.gui.desktop.enable {
 
   wayland.windowManager.sway = {
     enable = true;
-    
+
     config = {
-    
+
       modifier = "Mod4";
-      
-      bars = [ { command = "waybar"; } ];
-      
+
+      bars = [{ command = "waybar"; }];
+
       colors = {
-      
+
         focused = {
           background = t.bg;
           border = t.purple;
@@ -42,7 +44,7 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
           indicator = t.blue;
           text = t.text;
         };
-        
+
         unfocused = {
           background = t.bg;
           border = t.cyan;
@@ -50,7 +52,7 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
           indicator = t.cyan;
           text = t.text;
         };
-        
+
         urgent = {
           background = t.bg;
           border = t.red;
@@ -58,7 +60,7 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
           indicator = t.red;
           text = t.text;
         };
-        
+
         placeholder = {
           background = t.bg;
           border = t.black;
@@ -81,9 +83,9 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
 
       defaultWorkspace = "workspace number 1";
 
-      output = outputConfig; 
+      output = outputConfig;
 
-      input."*" = { 
+      input."*" = {
         xkb_layout = "de";
         xkb_variant = "us";
         xkb_options = "caps:escape";
@@ -94,27 +96,31 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
 
       keybindings = {
 
+        # Clipboard Manager
+        "${mod}+c" = "exec copyq toggle";
+
         # Exit Sway 
         "${mod}+Shift+e" = "exit";
-        
+
         # Screenshots
-        "Print+w" = "exec grimshot save window"; 
+        "Print+w" = "exec grimshot save window";
         "Print+c" = "exec grimshot save area";
         "Print+a" = "exec grimshot save screen";
 
         # Display Bridness
-        "XF86MonBrightnessDown" =  "exec light -U 5";
+        "XF86MonBrightnessDown" = "exec light -U 5";
         "XF86MonBrightnessUp" = "exec light -A 5";
 
         # Swaylock
         "${mod}+Escape" = "exec swaylock";
 
+
         # Browser
-        "${mod}+u" = "exec librewolf";
+        "${mod}+u" = "exec firefox";
 
         # SwayNotificationCenter
         "${mod}+n" = "exec swaync-client -t -sw";
-        
+
         # Volume
         "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
@@ -124,8 +130,8 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
         "${mod}+i" = "exec ${pkgs.wezterm}/bin/wezterm ${term-font-size}";
 
         # Kill focused window 
-        "${mod}+Shift+q" = "kill"; 
-        
+        "${mod}+Shift+q" = "kill";
+
         # Start your launcher 
         "${mod}+p" = ''exec wofi --show=run --prompt="" --height=15% --width=25% --term=wezterm'';
 
@@ -133,7 +139,7 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
         "XF86AudioPlay" = if nixosConfig.setup.screen == "big" then "exec mpc toggle" else null;
         "XF86AudioNext" = if nixosConfig.setup.screen == "big" then "exec mpc next" else null;
         "XF86AudioPrev" = if nixosConfig.setup.screen == "big" then "exec mpc prev" else null;
-        "${mod}+m" = if nixosConfig.setup.screen == "small" then "exec mpc toggle" else null; 
+        "${mod}+m" = if nixosConfig.setup.screen == "small" then "exec mpc toggle" else null;
 
 
         # Focus
@@ -204,11 +210,22 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
       };
 
       startup = [
-        { command = "swaync"; always = true; }
+        {
+          command = "swaync";
+          always = true;
+        }
+        {
+          command = "copyq --start-server";
+          always = true;
+        }
+        {
+          command = "playerctld daemon";
+          always = true;
+        }
       ];
 
     };
-  
+
   };
 
   home.packages = with pkgs; [
@@ -216,7 +233,10 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
     sway-contrib.grimshot
     wdisplays
     wl-clipboard
+    copyq
+    playerctl
     unstable.swaynotificationcenter
+    unstable.wttrbar
   ];
 
 }

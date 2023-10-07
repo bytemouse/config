@@ -10,6 +10,7 @@ lib.mkIf config.setup.gui.enable {
     nix-init
     manix
     unstable.diebahn
+    nixpkgs-fmt
   ];
 
 }

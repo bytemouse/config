@@ -27,6 +27,8 @@
     libqalculate
     sshfs
     unzip
+    nil
+    git
 
 
 

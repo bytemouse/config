@@ -2,7 +2,7 @@
 {
   users.users.snd = {
     uid = 1000;
-    # hashedPassword = "$y$j9T$7BatRoIvM/06kkM1zOs.W1$Phy/NxA2qJFl.j6NygjrNr53KG4oWEPEvqpNfokvS7.";
+    hashedPassword = "$y$j9T$bpxx.DAJ/JLjS6do18TQk1$sKUPds2dp51xyxsRt42JAHge1k2SGoJq5ddIuTzV5b1";
     password = "test";
     isNormalUser = true;
     description = "bytemouse";

@@ -1,10 +1,12 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports = [
     ./home
     ./modules
     # <nixpkgs/nixos/modules/virtualisation/qemu-vm.nix>
   ];
+
+  users.defaultUserShell = pkgs.zsh;
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";

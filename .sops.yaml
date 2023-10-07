@@ -1,11 +1,11 @@
 # This example uses YAML anchors which allows reuse of multiple keys 
 # without having to repeat yourself.
-# Also see https://github.c21om/Mic92/dotfiles/blob/master/nixos/.sops.yaml
+# Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml
 # for a more complex example.
 keys:
-  - &snd_git 51439C4F1213FC7DD97C45B85E57BD8EDACFA985
-  - &thinkpad age147kymrfytpfq4seds67hdc60xlprvvwkxj2qwv0adu09y7ja5p2qxjfhy8
-  - &desktop age1yl9c9nv3vpz4u5z6zzjcqcynq0373s072ruz7453cc9yfrw3e53qh6d5uw
+  - &snd_git 75035FA99C09E99336461218A8C13B19E24AF69E
+  - &thinkpad age1y3exu23pvels7rkwwq4ws5mmldudgnu4p9nruyfc3h6vayhdwc2sn7seaq
+  - &desktop age124xlpxdfwprf0raqecygltknswn6fgqm2nf65l5q00xc35vwnqcqkn4uh0
 creation_rules:
   - path_regex: secrets\.yaml$
     key_groups:

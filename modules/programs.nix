@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
-let 
+let
   desktop = config.setup.gui.desktop.enable;
   sway-desktop = pkgs.makeDesktopItem {
     name = "sway-desktop";
@@ -7,12 +7,15 @@ let
     exec = "${pkgs.sway}/bin/sway";
   };
 in
-{  
+{
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "Hack" ]; })
+    (nerdfonts.override { fonts = [ "FiraMono" ]; })
+    meslo-lgs-nf
+    fira
+    fira-code
   ];
 
   services.greetd = {
@@ -24,7 +27,7 @@ in
       };
     };
   };
-  
+
   services.xserver = {
     enable = config.setup.gui.enable;
     layout = config.console.keyMap;

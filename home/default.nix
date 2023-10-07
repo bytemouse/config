@@ -21,10 +21,9 @@
         ./xdg.nix
         ./zathura.nix
         ./bat.nix
-        ./librewolf.nix
         ./cli-visuializer.nix
         ./mpd.nix
-        ./shell.nix
+        ./zsh
         ./tmux.nix
         ./qt.nix
         ./spotify.nix
@@ -35,7 +34,6 @@
         ./swaylock.nix
         ./dconf.nix
         #./contacts_calendar.nix TODO
-        ./firefox.nix
         ./easyeffetcs.nix
         ./gpg.nix
 

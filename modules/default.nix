@@ -15,7 +15,7 @@
     ./options.nix
     ./theme.nix
     ./console.nix
-    # ./sops.nix
+    ./sops.nix
     ./ocr.nix
     ./nnn.nix
     ./gnome.nix

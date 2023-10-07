@@ -7,7 +7,7 @@
       TERM = "alacritty";
     };
 
-    working_directory = "/home/bytemouse/";
+    working_directory = "/hom/snd/";
 
     window = {
       padding = {

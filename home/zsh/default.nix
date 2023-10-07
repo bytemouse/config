@@ -11,7 +11,7 @@
       extended = true;
       save = 100000;
       size = 100000;
-      path = "/home/bytemouse/.zhistory";
+      path = "/home/snd/.zhistory";
     };
 
     historySubstringSearch = {

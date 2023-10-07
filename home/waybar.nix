@@ -1,13 +1,13 @@
 { nixosConfig, config, pkgs, lib, ... }:
-let 
+let
   theme = nixosConfig.theme;
-  font-size = if nixosConfig.setup.screen == "big" then "16" else "10";
+  font-size = if nixosConfig.setup.screen == "big" then "16" else "13";
   width = if nixosConfig.setup.screen == "big" then 3840 else 1920;
   height = if nixosConfig.setup.screen == "big" then 30 else 0;
-  padding = if nixosConfig.setup.screen == "big" then "10" else "8";
+  padding = if nixosConfig.setup.screen == "big" then "10" else "9";
 in
 {
-  programs.waybar =  {
+  programs.waybar = {
     enable = config.wayland.windowManager.sway.enable;
     settings = {
       mainBar = {
@@ -17,22 +17,20 @@ in
         #height = height;
         #width = width;
         spacing = 0;
-        modules-left = [ "sway/workspaces" ];
+        modules-left = [ "sway/workspaces" "custom/weather" "custom/spotify" ];
         modules-center = [ "sway/window" ];
-        modules-right = [ "mpd" "network" "idle_inhibitor" "pulseaudio" "memory" "cpu" "temperature" "backlight" "keyboard-state" "battery" "clock" ];
+        modules-right = [ "network" "pulseaudio" "memory" "cpu" "temperature" "backlight" "battery" "clock" ];
 
-        "keyboard-state" = {
-          numlock = true;
-          capslock = true;
-          format = "{name} {icon}";
-          format-icons = { 
-            locked = " "; 
-            unlocked = " "; 
-          };
+        "custom/weather" = {
+          "format" = "{}";
+          "tooltip" = true;
+          "interval" = 1800;
+          "exec" = "wttrbar --date-format '%a %d-%m' ";
+          "return-type" = "json";
         };
-        
-        "sway/mode" = { 
-          format = "<span style=\"italic\">{}</span>"; 
+
+        "sway/mode" = {
+          format = "<span style=\"italic\">{}</span>";
         };
 
         "sway/scratchpad" = {
@@ -40,40 +38,15 @@ in
           show-empty = false;
           format-icons = [ "" " " ];
           tooltip = true;
-          tooltip-format ="{app}: {title}";
+          tooltip-format = "{app}: {title}";
         };
 
-        "mpd" = {
-          server = config.services.mpd.network.listenAddress;
-          format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}%  ";
-          format-disconnected = "Disconnected  ";
-          format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped  ";
-          unknown-tag = "N/A";
-          interval = 2;
-          consume-icons = {
-            on = " ";
-          };
-          random-icons = {
-            off = "<span color=\"${theme.colours.red}\"> </span> ";
-            on = " ";
-          };
-          repeat-icons = {
-            on = " ";
-          };
-          single-icons = {
-            on = "1";
-          };
-          state-icons = {
-            paused = " ";
-            playing = " ";
-          };
-          tooltip-format = "MPD (connected)";
-          tooltip-format-disconnected = "MPD (disconnected)";
-          # FIXME remove this once waybar fixes the regression (https://github.com/Alexays/Waybar/issues/1778)
-          on-click = "${pkgs.mpc_cli}/bin/mpc -q -h ${config.services.mpd.network.listenAddress} toggle";
-          on-click-right = "${pkgs.mpc_cli}/bin/mpc -q -h ${config.services.mpd.network.listenAddress} stop";
-          on-scroll-up = "${pkgs.mpc_cli}/bin/mpc -q -h ${config.services.mpd.network.listenAddress} volume +2";
-          on-scroll-down = "${pkgs.mpc_cli}/bin/mpc -q -h ${config.services.mpd.network.listenAddress} volume -2";
+        "custom/spotify" = {
+          "interval" = 1;
+          "return-type" = "json";
+          "exec" = "/home/snd/etc/nixos/home/bar_scripts/spotify.sh";
+          "exec-if" = "pgrep spotify";
+          "escape" = true;
         };
 
         "idle_inhibitor" = {
@@ -88,7 +61,7 @@ in
           icon-size = 21;
           spacing = 0;
         };
-        
+
         "clock" = {
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           format-alt = "{:%Y-%m-%d}";
@@ -107,7 +80,7 @@ in
           critical-threshold = 80;
           format-critical = "{temperatureC}°C {icon}";
           format = "{temperatureC}°C {icon}";
-          format-icons = [" " " " " "];
+          format-icons = [ " " " " " " ];
         };
 
         "backlight" = {
@@ -125,7 +98,7 @@ in
           format-charging = "{capacity}% 󰂄 ";
           format-plugged = "{capacity}%  ";
           format-alt = "{time} {icon}";
-          format-icons = [" " " " " " " " " "];
+          format-icons = [ " " " " " " " " " " ];
         };
 
         "battery#bat2" = {
@@ -155,7 +128,7 @@ in
             phone = " ";
             portable = "";
             car = " ";
-            default = [" " " " " "];
+            default = [ " " " " " " ];
           };
           on-click = "pavucontrol";
         };
@@ -224,6 +197,8 @@ in
       #custom-media,
       #tray,
       #mode,
+      #custom-spotify,
+      #custom-weather,
       #custom-power,
       #custom-menu,
       #idle_inhibitor {

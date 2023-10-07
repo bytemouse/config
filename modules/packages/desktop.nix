@@ -18,6 +18,9 @@ lib.mkIf config.setup.gui.desktop.enable {
     pdfgrep
     gimp
     youtube-tui
+    meslo-lgs-nf
+    fira
+    firefox
   ];
 
 }

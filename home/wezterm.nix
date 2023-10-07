@@ -3,13 +3,13 @@ let
   t = nixosConfig.theme.colours;
 in
 {
-  
+
   programs.wezterm = {
-    
+
     enable = nixosConfig.setup.gui.desktop.enable;
 
     colorSchemes = {
-    
+
       default = {
         ansi = [
           t.surface1
@@ -102,8 +102,8 @@ in
 
     extraConfig = ''
       return {
-        font = wezterm.font("Hack Nerd Font"),
-        font_size = 10.0,
+        font = wezterm.font("Fira Mono Nerd Font"),
+        font_size = 12.0,
         color_scheme = "default",
         hide_tab_bar_if_only_one_tab = true
       }

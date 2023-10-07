@@ -22,7 +22,7 @@ lib.mkIf nixosConfig.setup.mail.enable {
     email = {
       maildirBasePath = "/home/snd/mail";
       accounts = {
-        "mailbox" = {
+        "postep" = {
           primary = true;
           address = "${nixosConfig.secrets.email.mailbox.address}";
           userName = "${nixosConfig.secrets.email.mailbox.username}";
@@ -41,11 +41,11 @@ lib.mkIf nixosConfig.setup.mail.enable {
             profiles = [ "personal" ];
           };
         };
-        "tu-dresden" = { 
+        "tu-dresden" = {
           primary = false;
           address = "${nixosConfig.secrets.email.tudresden.address}";
           userName = "${nixosConfig.secrets.email.tudresden.username}";
-          realName = "${nixosConfig.secrets.email.tudresden.realname}"; 
+          realName = "${nixosConfig.secrets.email.tudresden.realname}";
           imap = {
             host = "msx.tu-dresden.de";
             tls.useStartTls = true;
