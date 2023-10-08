@@ -21,6 +21,7 @@ lib.mkIf config.setup.gui.desktop.enable {
     meslo-lgs-nf
     fira
     firefox
+    calibre
   ];
 
 }

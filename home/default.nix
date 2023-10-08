@@ -9,12 +9,10 @@
     }: {
       home.stateVersion = "22.11";
       imports = [
-        ./alacritty.nix
         ./git.nix
         ./gtk.nix
         # ./mail.nix
         ./mpv.nix
-        ./ncmpcpp.nix
         ./sway.nix
         ./waybar.nix
         ./wofi.nix
@@ -22,7 +20,6 @@
         ./zathura.nix
         ./bat.nix
         ./cli-visuializer.nix
-        ./mpd.nix
         ./zsh
         ./tmux.nix
         ./qt.nix

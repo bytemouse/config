@@ -1,6 +1,6 @@
 { pkgs, config, lib, ... }:
-let 
-    ge = config.setup.gui.enable;
+let
+  ge = config.setup.gui.enable;
 in
 {
   programs.gnupg.agent = {
@@ -9,6 +9,7 @@ in
   };
 
   programs.ssh.startAgent = true;
+  programs.ssh.extraConfig = "AddKeysToAgent yes";
 
   users.users.snd.packages = lib.mkIf ge (with pkgs; [
     gnome.seahorse

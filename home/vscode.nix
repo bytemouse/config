@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ nixosConfig, pkgs, ... }:
 {
+
   programs.vscode = {
-    enable = true;
+    enable = nixosConfig.setup.gui.desktop.enable;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       james-yu.latex-workshop

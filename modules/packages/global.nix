@@ -28,8 +28,7 @@
     sshfs
     unzip
     nil
-
-
+    nixpkgs-fmt
 
   ];
 

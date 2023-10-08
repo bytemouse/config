@@ -8,6 +8,10 @@ in
     system = "x86_64-linux";
   };
 
+  "pi-server" = {
+    system = "aarch64-linux";
+  };
+
 
 
 }
