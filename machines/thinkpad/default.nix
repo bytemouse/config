@@ -15,7 +15,6 @@
 
   };
 
-
   virtualisation.libvirtd.enable = false;
 
   services = {

@@ -8,10 +8,9 @@
         version = 3;
       };
       grub.enable = false;
-      generic-extlinux-compatible.enable = true;
+      generic-extlinux-compatible.enable = false;
     };
     kernelPackages = pkgs.linuxPackages_rpi3;
-    tmpOnTmpfs = true;
     initrd.availableKernelModules = [ "usbhid" "usb_storage" "vc4" ];
     # ttyAMA0 is the serial console broken out to the GPIO
     kernelParams = [
@@ -32,10 +31,6 @@
     # };
   };
 
-  hardware = {
-    # Required for the Wireless firmware
-    enableRedistributableFirmware = true;
-  };
 
 
 }

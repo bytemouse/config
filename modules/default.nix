@@ -21,7 +21,6 @@
     ./gnome.nix
     ./ssh.nix
     ./hostapd.nix
-    ./boot.nix
     ./git-secrets.nix
   ];
 }

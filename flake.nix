@@ -24,7 +24,10 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
 
     flake-utils.url = "github:numtide/flake-utils";
@@ -36,10 +39,16 @@
     , nixpkgs
     , nixpkgs-unstable
     , flake-utils
+    , nixos-generators
     , ...
     }@inputs:
 
     {
+
+
+      nixpkgs.hostPlatform = "x86_64-linux";
+
+      # customize an existing format
 
       nixosConfigurations = nixpkgs.lib.mapAttrs
         (hostname: { system
