@@ -1,20 +1,26 @@
 { nixosConfig, unstable, config, pkgs, lib, ... }:
 let
-  term-font-size =
-    if nixosConfig.setup.screen == "big" then ''
-      --config font_size=16.0
-    '' else "";
+  term-font-size = "";
   mod = config.wayland.windowManager.sway.config.modifier;
   outputConfig =
     if nixosConfig.setup.screen == "big" then {
+      "HDMI-A-1".pos = "0 0 res 1920x1080";
       "*".bg = "${nixosConfig.theme.colours.bg} solid_color";
-      "DP-1".pos = "0 0 res 3840x2160";
-      "HDMI-A-1".pos = "3840 0 res 3840x2160";
+      "DP-1".pos = "1920 0 res 1920x1080";
     } else {
       "*".bg = "${nixosConfig.theme.colours.bg} solid_color";
       "eDP-1".mode = "1920x1080 position 0,0 scale 1";
     };
   t = nixosConfig.theme.colours;
+  bind_workspaces =
+    if nixosConfig.setup.screen == "big" then {
+      binding = "workspace 1 HDMI-A-1
+       workspace 2 DP-1
+       workspace 3 HDMI-A-1
+       workspace 4 DP-1";
+    } else {
+      binding = "";
+    };
 in
 lib.mkIf nixosConfig.setup.gui.desktop.enable {
 

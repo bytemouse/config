@@ -3,6 +3,7 @@ lib.mkIf config.setup.gui.desktop.enable {
 
   environment.systemPackages = with pkgs; [
 
+    stremio
     pdfarranger
     libreoffice
     xournalpp
