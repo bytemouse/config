@@ -9,6 +9,7 @@ in
 {
   programs.git = {
     enable = true;
+    lfs.enable = true;
     userName = "bytemouse";
     userEmail = "bytemouse@posteo.org";
     extraConfig = {

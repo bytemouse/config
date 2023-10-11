@@ -29,6 +29,20 @@ in
           "return-type" = "json";
         };
 
+        "sway/workspaces" = {
+          "format" = "{name} {icon}";
+          "on-click" = "activate";
+          "format-icons" = {
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
+            "5" = "";
+            "6" = "";
+          };
+        };
+
+
         "sway/mode" = {
           format = "<span style=\"italic\">{}</span>";
         };

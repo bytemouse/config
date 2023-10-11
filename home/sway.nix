@@ -29,6 +29,12 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
 
     config = {
 
+      workspaceOutputAssign = [{
+        workspace = "1";
+        output = "HDMI-A-1";
+      }];
+
+
       modifier = "Mod4";
 
       bars = [{ command = "waybar"; }];
@@ -231,6 +237,8 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
       ];
 
     };
+
+
 
   };
 
