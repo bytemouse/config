@@ -13,10 +13,10 @@
     screen = "small";
     ocr.enable = true;
     extraArch.enable = false;
-
+    libvirt.autostart.enable = true;
   };
 
-  virtualisation.libvirtd.enable = false;
+  virtualisation.libvirtd.enable = true;
 
   services = {
     xserver.desktopManager.gnome.enable = true;

@@ -29,8 +29,6 @@
     unzip
     nil
     nixpkgs-fmt
-
-
   ];
 
 }
