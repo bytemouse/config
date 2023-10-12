@@ -240,6 +240,22 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
           command = "playerctld daemon";
           always = true;
         }
+        {
+          command = "exec swaymsg 'workspace 1; exec wezterm' ";
+          always = true;
+        }
+        {
+          command = "exec swaymsg 'workspace 2; exec firefox' ";
+          always = true;
+        }
+        {
+          command = "exec swaymsg 'workspace 9; exec codium /etc/nixos' ";
+          always = true;
+        }
+        {
+          command = "exec swaymsg 'workspace 10; exec bitwarden' ";
+          always = true;
+        }
       ];
 
     };

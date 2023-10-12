@@ -29,6 +29,7 @@
     unzip
     nil
     nixpkgs-fmt
+    duperemove
   ];
 
 }
