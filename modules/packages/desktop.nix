@@ -23,6 +23,7 @@ lib.mkIf config.setup.gui.desktop.enable {
     fira
     firefox
     calibre
+    kdiskmark
   ];
 
 }

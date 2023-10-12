@@ -5,6 +5,7 @@
     ./hardware.nix
     ../../configuration.nix
   ];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   setup = {
     mail.enable = true;

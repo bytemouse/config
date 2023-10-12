@@ -1,1 +1,3 @@
 .luarc.json
+result
+machines/pi-server/secret.key
