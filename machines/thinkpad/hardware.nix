@@ -25,7 +25,7 @@
     {
       device = "/dev/disk/by-uuid/56653a81-4ccc-4bd5-8113-f07c3c154923";
       fsType = "btrfs";
-      options = [ "subvol=@" "noatime" "compress=lzo" ];
+      options = [ "subvol=@" "noatime" "compress-force=zstd:1" ];
     };
 
   boot.initrd.luks.devices."luks-5b39fdd8-823e-4341-b61e-7ac4555ec92a".device = "/dev/disk/by-uuid/5b39fdd8-823e-4341-b61e-7ac4555ec92a";
