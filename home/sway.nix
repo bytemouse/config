@@ -4,9 +4,9 @@ let
   mod = config.wayland.windowManager.sway.config.modifier;
   outputConfig =
     if nixosConfig.setup.screen == "big" then {
-      "HDMI-A-1".pos = "0 0 res 1920x1080";
+      "HDMI-A-1".pos = "1920 0 res 1920x1080";
       "*".bg = "${nixosConfig.theme.colours.bg} solid_color";
-      "DP-1".pos = "1920 0 res 1920x1080";
+      "DP-1".pos = "0 0 res 1920x1080";
     } else {
       "*".bg = "${nixosConfig.theme.colours.bg} solid_color";
       "eDP-1".mode = "1920x1080 position 0,0 scale 1";
@@ -29,10 +29,16 @@ lib.mkIf nixosConfig.setup.gui.desktop.enable {
 
     config = {
 
-      workspaceOutputAssign = [{
-        workspace = "1";
-        output = "HDMI-A-1";
-      }];
+      workspaceOutputAssign = [
+        {
+          workspace = "1";
+          output = "DP-1";
+        }
+        {
+          workspace = "2";
+          output = "HDMI-A-1";
+        }
+      ];
 
 
       modifier = "Mod4";

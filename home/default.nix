@@ -33,6 +33,7 @@
         #./contacts_calendar.nix TODO
         ./easyeffetcs.nix
         ./gpg.nix
+        ./firefox.nix
 
         ./swaync
         ./network-certs
