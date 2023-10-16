@@ -6,6 +6,8 @@ lib.mkIf config.setup.gui.desktop.enable {
     stremio
     pdfarranger
     libreoffice
+    hunspell
+    hunspellDicts.de_DE
     xournalpp
     gthumb
     qbittorrent
