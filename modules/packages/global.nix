@@ -30,6 +30,8 @@
     nil
     nixpkgs-fmt
     duperemove
+    sops
+    age
   ];
 
 }

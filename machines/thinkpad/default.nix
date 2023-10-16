@@ -20,6 +20,7 @@
 
   services = {
     xserver.desktopManager.gnome.enable = true;
+
   };
 
   networking = {

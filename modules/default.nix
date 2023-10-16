@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 {
   imports = [
-    ./sops.nix
+    # ./sops.nix
     ./packages
     ./htop.nix
     ./programs.nix

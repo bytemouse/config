@@ -11,7 +11,7 @@
       imports = [
         ./git.nix
         ./gtk.nix
-        ./mail.nix
+        # ./mail.nix
         ./mpv.nix
         ./sway.nix
         ./waybar.nix
