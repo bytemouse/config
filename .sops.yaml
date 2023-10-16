@@ -14,7 +14,3 @@ creation_rules:
       age:
       - *thinkpad
       - *desktop
-  - path_regex: git-secrets\.json$
-    key_groups:
-      - pgp:
-        - *snd_git

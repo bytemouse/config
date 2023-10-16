@@ -8,6 +8,7 @@
   #shift + up/down arrow scroll faster
   programs.neovim.enable = true;
 
+  programs.neovim.defaultEditor = true; 
   #Autocompletion
   #ctrl + y to autocomplete
   programs.neovim.coc.enable = true;

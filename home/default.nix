@@ -11,7 +11,7 @@
       imports = [
         ./git.nix
         ./gtk.nix
-        # ./mail.nix
+        ./mail.nix
         ./mpv.nix
         ./sway.nix
         ./waybar.nix
@@ -25,7 +25,6 @@
         ./qt.nix
         ./spotify.nix
         ./ssh.nix
-        ./sops.nix
         ./wezterm.nix
         ./nnn.nix
         ./swaylock.nix

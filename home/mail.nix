@@ -22,17 +22,17 @@ lib.mkIf nixosConfig.setup.mail.enable {
     email = {
       maildirBasePath = "/home/snd/mail";
       accounts = {
-        "postep" = {
+        "posteo" = {
           primary = true;
-          address = "${nixosConfig.secrets.email.mailbox.address}";
-          userName = "${nixosConfig.secrets.email.mailbox.username}";
-          realName = "${nixosConfig.secrets.email.mailbox.realname}";
+          address = "${config.sops.templates."posteo.toml".address}";
+          userName = "${config.sops.templates."posteo.toml".username}";
+          realName = "${config.sops.templates."posteo.toml".realname}";
           imap = {
-            host = "imap.mailbox.org";
+            host = "posteo.de";
             tls.useStartTls = true;
           };
           smtp = {
-            host = "smtp.mailbox.org";
+            host = "posteo.de";
             port = 587;
             tls.useStartTls = true;
           };
@@ -41,25 +41,25 @@ lib.mkIf nixosConfig.setup.mail.enable {
             profiles = [ "personal" ];
           };
         };
-        "tu-dresden" = {
-          primary = false;
-          address = "${nixosConfig.secrets.email.tudresden.address}";
-          userName = "${nixosConfig.secrets.email.tudresden.username}";
-          realName = "${nixosConfig.secrets.email.tudresden.realname}";
-          imap = {
-            host = "msx.tu-dresden.de";
-            tls.useStartTls = true;
-          };
-          smtp = {
-            host = "msx.tu-dresden.de";
-            port = 587;
-            tls.useStartTls = true;
-          };
-          thunderbird = {
-            enable = true;
-            profiles = [ "personal" ];
-          };
-        };
+        # "rwth" = {
+        #   primary = false;
+        #   address = "${nixosConfig.secrets.email.rwth.address}";
+        #   userName = "${nixosConfig.secrets.email.rwth.username}";
+        #   realName = "${nixosConfig.secrets.email.rwth.realname}";
+        #   imap = {
+        #     host = "mail.rwth-aachen.de";
+        #     tls.useStartTls = true;
+        #   };
+        #   smtp = {
+        #     host = "mail.rwth-aachen.de";
+        #     port = 587;
+        #     tls.useStartTls = true;
+        #   };
+        #   thunderbird = {
+        #     enable = true;
+        #     profiles = [ "personal" ];
+        #   };
+        # };
       };
     };
   };

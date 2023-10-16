@@ -15,12 +15,10 @@
     ./options.nix
     ./theme.nix
     ./console.nix
-    ./sops.nix
     ./ocr.nix
     ./nnn.nix
     ./gnome.nix
     ./ssh.nix
     ./hostapd.nix
-    ./git-secrets.nix
   ];
 }
