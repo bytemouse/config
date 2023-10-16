@@ -24,9 +24,9 @@ lib.mkIf nixosConfig.setup.mail.enable {
       accounts = {
         "posteo" = {
           primary = true;
-          address = "${config.sops.templates."posteo.toml".address}";
-          userName = "${config.sops.templates."posteo.toml".username}";
-          realName = "${config.sops.templates."posteo.toml".realname}";
+          address = "${nixosConfig.secrets.email.posteo.address}";
+          userName = "${nixosConfig.secrets.email.posteo.username}";
+          realName = "${nixosConfig.secrets.email.posteo.realname}";
           imap = {
             host = "posteo.de";
             tls.useStartTls = true;
