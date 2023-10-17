@@ -20,7 +20,7 @@
 
   services = {
     xserver.desktopManager.gnome.enable = true;
-
+    openssh.enable = true;
   };
 
   networking = {

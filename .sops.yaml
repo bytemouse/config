@@ -4,7 +4,7 @@
 # for a more complex example.
 keys:
   - &snd_git 75035FA99C09E99336461218A8C13B19E24AF69E
-  - &thinkpad age1y3exu23pvels7rkwwq4ws5mmldudgnu4p9nruyfc3h6vayhdwc2sn7seaq
+  - &thinkpad age1cggm5jlzm4kdfqre3m5ct40mhyn9g7yg8g8d6k8hskxeze9ungaqunsx2u
   - &desktop age124xlpxdfwprf0raqecygltknswn6fgqm2nf65l5q00xc35vwnqcqkn4uh0
 creation_rules:
   - path_regex: secrets\.yaml$

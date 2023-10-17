@@ -19,5 +19,6 @@
     ./gnome.nix
     ./ssh.nix
     ./hostapd.nix
+    ./sops.nix
   ];
 }
